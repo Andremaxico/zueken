@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Zueken",
-  description: "App for search open-source information",
+  description: "App for search open-source information ",
 };
 
 export default function RootLayout({
