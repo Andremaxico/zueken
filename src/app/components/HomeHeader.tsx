@@ -7,7 +7,7 @@ type PropsType = {}
 export const HomeHeader: React.FC<PropsType> = ({}) => {
 	return (
 		<header
-			className='flex justify-end p-4 gap-3 items-center'
+			className='flex justify-end p-4 gap-6 items-center'
 		>
 			<Link 
 				href={'https://mail.google.com'}
