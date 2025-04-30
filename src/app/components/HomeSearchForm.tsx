@@ -1,17 +1,20 @@
 'use client'
 
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { IoIosSearch } from "react-icons/io";
 import { FaMicrophone } from "react-icons/fa";
 import { useRouter } from 'next/navigation';
 
 
-type PropsType = {}
+type PropsType = {
+	setFormRef: (ref: HTMLFormElement) => void;
+}
 
-export const HomeSearchForm: React.FC<PropsType> = ({}) => {
+export const HomeSearchForm: React.FC<PropsType> = ({setFormRef}) => {
 	const [searchTerm, setSearchTerm] = useState<string | undefined>(undefined);
 
 	const router = useRouter();
+	const formRef = useRef<HTMLFormElement>(null);
 
 	const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
 		const currValue = e.currentTarget.value;
@@ -28,6 +31,12 @@ export const HomeSearchForm: React.FC<PropsType> = ({}) => {
 		}
 	}
 
+	useEffect(() => {
+		if(formRef.current) {
+			setFormRef(formRef.current);
+		}
+	}, [formRef.current])
+
 	return (
 		<form 
 			className='
@@ -38,22 +47,23 @@ export const HomeSearchForm: React.FC<PropsType> = ({}) => {
 				hover:border-dark rounded-full focus-within::shadow-md active:shadow-md
 			'
 			onSubmit={handleSubmit}
+			ref={formRef}
 		>
-				<button className='text-lg text-gray-500 hover:text-primary duration-75'>
-					<IoIosSearch />
-				</button>
-				<input 
-					className='
-						flex-grow outline-none
-						mx-1.5
-					'
-					placeholder='Шукайте тут'
-					value={searchTerm}
-					onChange={handleInput}
-				/>
-				<button className='text-lg text-gray-500 hover:text-primary duration-75'>
-					<FaMicrophone />
-				</button>
+			<button className='text-lg text-gray-500 hover:text-primary duration-75'>
+				<IoIosSearch />
+			</button>
+			<input 
+				className='
+					flex-grow outline-none
+					mx-1.5
+				'
+				placeholder='Шукайте тут'
+				value={searchTerm}
+				onChange={handleInput}
+			/>
+			<button className='text-lg text-gray-500 hover:text-primary duration-75'>
+				<FaMicrophone />
+			</button>
 		</form>
 	)
 }
