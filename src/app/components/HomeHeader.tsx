@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import React from 'react';
 import { IoGrid } from "react-icons/io5";
+import { SignInBtn } from './SignInBtn';
 
 type PropsType = {}
 
@@ -38,19 +39,7 @@ export const HomeHeader: React.FC<PropsType> = ({}) => {
 			>
 				<IoGrid />
 			</button>
-
-			<button
-				className='
-					w-20 p-1.5 bg-primary 
-					border-1 border-primary 
-					text-white
-					duration-100 hover:bg-transparent hover:text-primary
-					rounded-md 
-					cursor-pointer
-				'
-			>
-				Sign In
-			</button>
+			<SignInBtn />
 		</header>
 	)
 }
