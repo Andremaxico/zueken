@@ -5,6 +5,7 @@ import { SearchBox } from './SearchBox';
 import { CiSettings } from "react-icons/ci";
 import { IoGrid } from "react-icons/io5";
 import { SignInBtn } from './SignInBtn';
+import { SearchHeaderOptions } from './SearchHeaderOptions';
 
 type PropsType = {};
 
@@ -39,6 +40,7 @@ export const SearchHeader: React.FC<PropsType> = () => {
 				</div>
 				<SignInBtn className='ml-1.5' />
 			</div>
+			<SearchHeaderOptions />
 		</header>
 	)
 }
