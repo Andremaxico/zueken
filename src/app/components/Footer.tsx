@@ -6,7 +6,7 @@ type PropsType = {}
 export const Footer: React.FC<PropsType> = ({}) => {
 	return (
 		<footer className='
-			absolute bottom-0 text-sm text-gray-500 bg-[#fcfcfc] w-full
+			text-sm text-gray-500 bg-[#fcfcfc] w-full
 		'>
 			<CountryLookup />
 			<nav className='

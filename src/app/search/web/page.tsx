@@ -1,3 +1,5 @@
+import { WebSearchResult } from '@/app/components/WebSearchResult'
+import { WebSearchResults } from '@/app/components/WebSearchResults'
 import { SearchParams } from 'next/dist/server/request/search-params'
 import Link from 'next/link'
 import React from 'react'
@@ -6,7 +8,150 @@ type PropsType = {
 	searchParams: SearchParams,
 }
 
-type ResultType = {
+export type SearchType = {
+	"kind": string,
+	"url": {
+		"type": string,
+		"template": string
+	},
+	"queries": {
+		"previousPage": [
+		{
+			"title": string,
+			"totalResults": string,
+			"searchTerms": string,
+			"count": number,
+			"startIndex": number,
+			"startPage": number,
+			"language": string,
+			"inputEncoding": string,
+			"outputEncoding": string,
+			"safe": string,
+			"cx": string,
+			"sort": string,
+			"filter": string,
+			"gl": string,
+			"cr": string,
+			"googleHost": string,
+			"disableCnTwTranslation": string,
+			"hq": string,
+			"hl": string,
+			"siteSearch": string,
+			"siteSearchFilter": string,
+			"exactTerms": string,
+			"excludeTerms": string,
+			"linkSite": string,
+			"orTerms": string,
+			"relatedSite": string,
+			"dateRestrict": string,
+			"lowRange": string,
+			"highRange": string,
+			"fileType": string,
+			"rights": string,
+			"searchType": string,
+			"imgSize": string,
+			"imgType": string,
+			"imgColorType": string,
+			"imgDominantColor": string
+		}
+		],
+		"request": [
+		{
+			"title": string,
+			"totalResults": string,
+			"searchTerms": string,
+			"count": number,
+			"startIndex": number,
+			"startPage": number,
+			"language": string,
+			"inputEncoding": string,
+			"outputEncoding": string,
+			"safe": string,
+			"cx": string,
+			"sort": string,
+			"filter": string,
+			"gl": string,
+			"cr": string,
+			"googleHost": string,
+			"disableCnTwTranslation": string,
+			"hq": string,
+			"hl": string,
+			"siteSearch": string,
+			"siteSearchFilter": string,
+			"exactTerms": string,
+			"excludeTerms": string,
+			"linkSite": string,
+			"orTerms": string,
+			"relatedSite": string,
+			"dateRestrict": string,
+			"lowRange": string,
+			"highRange": string,
+			"fileType": string,
+			"rights": string,
+			"searchType": string,
+			"imgSize": string,
+			"imgType": string,
+			"imgColorType": string,
+			"imgDominantColor": string
+		}
+		],
+		"nextPage": [
+		{
+			"title": string,
+			"totalResults": string,
+			"searchTerms": string,
+			"count": number,
+			"startIndex": number,
+			"startPage": number,
+			"language": string,
+			"inputEncoding": string,
+			"outputEncoding": string,
+			"safe": string,
+			"cx": string,
+			"sort": string,
+			"filter": string,
+			"gl": string,
+			"cr": string,
+			"googleHost": string,
+			"disableCnTwTranslation": string,
+			"hq": string,
+			"hl": string,
+			"siteSearch": string,
+			"siteSearchFilter": string,
+			"exactTerms": string,
+			"excludeTerms": string,
+			"linkSite": string,
+			"orTerms": string,
+			"relatedSite": string,
+			"dateRestrict": string,
+			"lowRange": string,
+			"highRange": string,
+			"fileType": string,
+			"rights": string,
+			"searchType": string,
+			"imgSize": string,
+			"imgType": string,
+			"imgColorType": string,
+			"imgDominantColor": string
+		}
+		]
+	},
+	"promotions": object[],
+	"context": object,
+	"searchInformation": {
+		"searchTime": number,
+		"formattedSearchTime": string,
+		"totalResults": string,
+		"formattedTotalResults": string
+	},
+	"spelling": {
+		"correctedQuery": string,
+		"htmlCorrectedQuery": string
+	},
+	"items": ResultType[],
+}
+
+export type ResultType = {
 	"kind": string,
 	"title": string,
 	"htmlTitle": string,
@@ -47,24 +192,12 @@ async function WebSearchPage({ searchParams }: PropsType) {
 
 	if(!response.ok) throw new Error('Something went wrong');
 
-	const data = await response.json();
-	const results = data.items as ResultType[];
+	const search = await response.json() as SearchType;
 
 	return (
-		<div>
-			{results && results.map(result => (
-				<p key={result.formattedUrl}>{result.title}</p>
-			))}
-			{(!results || results.length === 0) && 
-				<div className='flex flex-col items-center'>
-					<h1 className='text-3xl'>No results found for {searchTerm}</h1>
-					<p >
-						Try searching the web or images for something else
-					</p>
-					<Link href='' className='text-primary cursor-pointer'>Home</Link>
-				</div>
-			}
-		</div>
+		<main>
+			{search && <WebSearchResults search={search} />}
+		</main>
 	)
 }
 
