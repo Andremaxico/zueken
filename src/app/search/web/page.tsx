@@ -8,7 +8,7 @@ type PropsType = {
 	searchParams: SearchParams,
 }
 
-export type SearchType = {
+export type SearchType<ItemType> = {
 	"kind": string,
 	"url": {
 		"type": string,
@@ -148,7 +148,7 @@ export type SearchType = {
 		"correctedQuery": string,
 		"htmlCorrectedQuery": string
 	},
-	"items": ResultType[],
+	"items": ItemType[],
 }
 
 export type ResultType = {
@@ -183,6 +183,25 @@ export type ResultType = {
 	]
 }
 
+export type ImageType = {
+	source: string,
+	width: number,
+	height: number,
+}
+
+export type ImageResultType = {
+	"kind": string,
+	"title": string,
+	"htmlTitle": string,
+	"link": string,
+	"displayLink": string,
+	"snippet": string,
+	"htmlSnippet": string,
+	mime: string,
+	fileFormat: string,
+	image: ImageType,
+}
+
 async function WebSearchPage({ searchParams }: PropsType) {
 	const searchTerm = (await searchParams).searchTerm;
 
@@ -192,7 +211,7 @@ async function WebSearchPage({ searchParams }: PropsType) {
 
 	if(!response.ok) throw new Error('Something went wrong');
 
-	const search = await response.json() as SearchType;
+	const search = await response.json() as SearchType<ResultType>;
 
 	return (
 		<main>
