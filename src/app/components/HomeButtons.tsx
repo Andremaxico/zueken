@@ -28,7 +28,7 @@ export const HomeButtons: React.FC<PropsType> = ({formRef}) => {
 
 
 	return (
-		<div className='flex flex-col items-center md:flex-row'>
+		<div className='flex flex-col items-center md:flex-row justify-center'>
 			<button 
 				className='
 					px-3 py-2 mb-2 md:mb-0 md:mr-2

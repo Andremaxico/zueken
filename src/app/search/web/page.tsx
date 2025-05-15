@@ -184,9 +184,13 @@ export type ResultType = {
 }
 
 export type ImageType = {
-	source: string,
+	contextLink: string,
 	width: number,
 	height: number,
+	byteSize: number,
+	thumbnailLink: string,
+	thumbnailHeight: number,
+	thumbnailWidth: number,
 }
 
 export type ImageResultType = {
@@ -215,7 +219,9 @@ async function WebSearchPage({ searchParams }: PropsType) {
 
 	return (
 		<main>
-			{search && <WebSearchResults search={search} />}
+			<div className="container">
+				{search && <WebSearchResults search={search} />}
+			</div>
 		</main>
 	)
 }

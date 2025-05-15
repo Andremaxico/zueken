@@ -58,6 +58,7 @@ export const HomeSearchForm: React.FC<PropsType> = ({setFormRef}) => {
 					mx-1.5
 				'
 				placeholder='Шукайте тут'
+				defaultValue={searchTerm}
 				value={searchTerm}
 				onChange={handleInput}
 			/>
