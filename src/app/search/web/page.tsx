@@ -1,3 +1,4 @@
+import { PaginationButtons } from '@/app/components/PaginationButtons'
 import { WebSearchResult } from '@/app/components/WebSearchResult'
 import { WebSearchResults } from '@/app/components/WebSearchResults'
 import { SearchParams } from 'next/dist/server/request/search-params'
@@ -208,9 +209,10 @@ export type ImageResultType = {
 
 async function WebSearchPage({ searchParams }: PropsType) {
 	const searchTerm = (await searchParams).searchTerm;
+	const page = +(searchParams.page || 1);
 
 	const response = await fetch(`
-		https://www.googleapis.com/customsearch/v1?key=${process.env.API_KEY}&cx=${process.env.CONTEXT_KEY}&q=${searchTerm}
+		https://www.googleapis.com/customsearch/v1?key=${process.env.API_KEY}&cx=${process.env.CONTEXT_KEY}&q=${searchTerm}&start=${page * 10}
 	`);
 
 	if(!response.ok) throw new Error('Something went wrong');

@@ -1,4 +1,5 @@
 import { ImagesSearchResults } from '@/app/components/ImagesSearchResults';
+import { PaginationButtons } from '@/app/components/PaginationButtons';
 import { SearchParams } from 'next/dist/server/request/search-params';
 import React from 'react'
 
@@ -8,9 +9,10 @@ type PropsType = {
 
 async function ImageSearchPage({searchParams}: PropsType) {
 	const searchTerm = ( await searchParams).searchTerm;
-	
+	const page = +(searchParams.start || 10);
+
 	const response = await fetch(`
-		https://www.googleapis.com/customsearch/v1?key=${process.env.API_KEY}&cx=${process.env.CONTEXT_KEY}&q=${searchTerm}&searchType=image
+		https://www.googleapis.com/customsearch/v1?key=${process.env.API_KEY}&cx=${process.env.CONTEXT_KEY}&q=${searchTerm}&searchType=image&start=${page*10}
 	`);
 
 	if(!response.ok) throw new Error('Something went wrong');
