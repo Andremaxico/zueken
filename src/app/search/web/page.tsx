@@ -209,6 +209,7 @@ export type ImageResultType = {
 
 async function WebSearchPage({ searchParams }: PropsType) {
 	const searchTerm = (await searchParams).searchTerm;
+
 	const page = +(searchParams.page || 1);
 
 	const response = await fetch(`
