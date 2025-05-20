@@ -3,7 +3,7 @@ import React from 'react';
 import { IoGrid } from "react-icons/io5";
 import { SignInBtn } from './SignInBtn';
 
-type PropsType = {}
+type PropsType = object
 
 export const HomeHeader: React.FC<PropsType> = ({}) => {
 	return (

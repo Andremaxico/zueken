@@ -1,11 +1,11 @@
 'use client'
 
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
-import React, { useState } from 'react'
+import React from 'react'
 import { IoIosSearch } from "react-icons/io";
 import { CiCamera } from "react-icons/ci";
 
-type PropsType = {}
+type PropsType = object
 type TabType = 'web' | 'image'
 
 export const SearchHeaderOptions: React.FC<PropsType> = ({}) => {

@@ -6,7 +6,7 @@ import { IoIosArrowForward } from "react-icons/io";
 import { IoIosArrowBack } from "react-icons/io";
 import React from 'react';
 
-type PropsType = {}
+type PropsType = object
 
 export const PaginationButtons: React.FC<PropsType> = ({}) => {
 	const pathname = usePathname();

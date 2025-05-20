@@ -1,10 +1,8 @@
 import Image from 'next/image';
 import React from 'react';
-import { HomeSearchForm } from './HomeSearchForm';
-import { HomeButtons } from './HomeButtons';
 import { HomeSearch } from './HomeSearch';
 
-type PropsType = {}
+type PropsType = object
 
 export const HomeBody: React.FC<PropsType> = ({}) => {
 	return (

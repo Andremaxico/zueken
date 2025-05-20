@@ -7,7 +7,7 @@ import { IoGrid } from "react-icons/io5";
 import { SignInBtn } from './SignInBtn';
 import { SearchHeaderOptions } from './SearchHeaderOptions';
 
-type PropsType = {};
+type PropsType = object;
 
 export const SearchHeader: React.FC<PropsType> = () => {
 	return (

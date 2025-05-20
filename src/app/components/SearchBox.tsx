@@ -6,7 +6,7 @@ import { FaMicrophone } from "react-icons/fa";
 import { RxCross1 } from "react-icons/rx";
 import { useRouter, useSearchParams } from 'next/navigation';
 
-type PropsType = {}
+type PropsType = object
 
 export const SearchBox: React.FC<PropsType> = ({}) => {
 	const router = useRouter();

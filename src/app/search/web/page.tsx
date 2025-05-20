@@ -1,8 +1,5 @@
-import { PaginationButtons } from '@/app/components/PaginationButtons'
-import { WebSearchResult } from '@/app/components/WebSearchResult'
 import { WebSearchResults } from '@/app/components/WebSearchResults'
 import { SearchParams } from 'next/dist/server/request/search-params'
-import Link from 'next/link'
 import React from 'react'
 
 type PropsType = {

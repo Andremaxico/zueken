@@ -8,7 +8,7 @@ type PropsType = {
 };
 
 export const ImagesSearchResult: React.FC<PropsType> = ({data}) => {
-	const { displayLink, image, kind, link, title} = data;
+	const { displayLink, image, title} = data;
 
 	console.log('image src', image);
 

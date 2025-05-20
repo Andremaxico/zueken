@@ -9,7 +9,7 @@ type PropsType = {
 };
 
 export const WebSearchResults: React.FC<PropsType> = ({search}) => {
-	const {count, searchTerms, totalResults, startIndex} = search.queries.request[0];
+	const {searchTerms, totalResults} = search.queries.request[0];
 
 	console.log(search.queries.request);
 
@@ -29,7 +29,7 @@ export const WebSearchResults: React.FC<PropsType> = ({search}) => {
 				</>
 			:
 				<div className='flex flex-col items-center'>
-					<h1 className='text-3xl'>Не знайдено результатів за запитом "{searchTerms}"</h1>
+					<h1 className='text-3xl'>Не знайдено результатів за запитом &quot;{searchTerms}&quot;</h1>
 					<p >
 						Спробуйте пошукати щось інше
 					</p>

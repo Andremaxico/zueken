@@ -1,7 +1,7 @@
 import React from 'react';
 import { CountryLookup } from './CountryLookup';
 
-type PropsType = {}
+type PropsType = object
 
 export const Footer: React.FC<PropsType> = ({}) => {
 	return (

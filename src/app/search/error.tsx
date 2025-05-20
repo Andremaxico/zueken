@@ -7,7 +7,7 @@ type PropsType = {
 	reset: () => void,
 };
 
-function Error({error, reset}: PropsType) {
+function Error({error}: PropsType) {
 	useEffect(() => {
 		console.log('error', error);
 	}, [error])

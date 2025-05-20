@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from 'react'
 
-type PropsType = {};
+type PropsType = object;
 
 export const CountryLookup: React.FC<PropsType> = ({}) => {
 	const [country, setCountry] = useState<string>('United States');

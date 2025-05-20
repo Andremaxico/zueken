@@ -29,7 +29,7 @@ export const ImagesSearchResults: React.FC<PropsType> = ({results, searchTerm}) 
 				</>
 			:
 				<div className='flex flex-col items-center'>
-					<h1 className='text-3xl'>Не знайдено результатів за запитом "{searchTerm}"</h1>
+					<h1 className='text-3xl'>Не знайдено результатів за запитом &quot;{searchTerm}&quot;</h1>
 					<p >
 						Спробуйте знайти щось інше
 					</p>
