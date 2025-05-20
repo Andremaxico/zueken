@@ -1,5 +1,4 @@
 import { ImagesSearchResults } from '@/app/components/ImagesSearchResults';
-import { PaginationButtons } from '@/app/components/PaginationButtons';
 import { SearchParams } from 'next/dist/server/request/search-params';
 import React from 'react'
 

@@ -1,7 +1,7 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import React, { useReducer, useState } from 'react';
+import React, { useState } from 'react';
 
 type PropsType = {
 	formRef: HTMLFormElement,
