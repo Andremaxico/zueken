@@ -2,7 +2,7 @@ import React from 'react'
 import { HomeHeader } from './components/HomeHeader';
 import { HomeBody } from './components/HomeBody';
 
-export const Home = () => {
+export default function page() {
     return (
       <div>
         <HomeHeader />
@@ -10,5 +10,3 @@ export const Home = () => {
       </div>
     )
 }
-
-export default Home;
